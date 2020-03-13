@@ -57,12 +57,21 @@
                     }
 
                     timerTick() {
-                        
+                        /*
                             this.setState({
                                 strikes: this.state.strikes + 100,
                             })
+                        */
+
+                        this.setState((prevState) => {
+                            return {
+                                strikes: prevState.strikes + 100,
+                            }
+                        })
                     }
 
+                    // We start a timer right after component mounts
+                    // that is called every 1 second.
                     componentDidMount() {
                         setInterval(this.timerTick, 1000);
                     }
